@@ -41,7 +41,20 @@ $query = mysqli_query($koneksi, "SELECT * FROM tb_obat ORDER BY id_obat DESC");
                 <td><?= $baris['stok_obat']; ?></td>
                 <td><?= $baris['keterangan']; ?></td>
                 <td><a href="edit_obat.php?idobat=<?= $baris['id_obat'];?>">Edit</a></td>
+                <?php
+                    $id_obat = $baris['id_obat'];
+                    $hide_delete = mysqli_query($koneksi, "SELECT * FROM tb_obat INNER JOIN tb_detail_transaksi ON tb_obat.id_obat = tb_detail_transaksi.id_obat WHERE tb_obat.id_obat = $id_obat");
+                    $cek = mysqli_num_rows($hide_delete);
+
+                    if($cek==0){
+                        ?>
                 <td><a href="delete_obat.php?idobat=<?= $baris['id_obat'];?>">Delete</a></td>
+                <?php
+                    } else {
+                        echo "<td></td>";
+                    }
+                ?>
+
             </tr>
             <?php
                 }
