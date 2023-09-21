@@ -77,7 +77,7 @@
             <label for="id_supplier">ID Supplier:</label>
             <select id="id_supplier" name="id_supplier">
                 <?php
-                    include "koneksi.php";
+                    include "../../koneksi.php";
                     $query = "SELECT * FROM tb_supplier";
                     $data = mysqli_query($koneksi, $query);
                     while($baris = mysqli_fetch_assoc($data)){

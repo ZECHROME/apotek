@@ -1,5 +1,5 @@
 <?php
-    include "koneksi.php";
+    include "../../koneksi.php";
     $id_obat = $_GET['idobat'];
     $query_obat = mysqli_query($koneksi, "SELECT * FROM tb_obat WHERE id_obat=$id_obat");
     $row = mysqli_fetch_assoc($query_obat);
@@ -88,7 +88,7 @@
                     $query_supplier = mysqli_query($koneksi, "SELECT id_supplier, perusahaan FROM tb_supplier WHERE id_supplier=$id_supplier");
                     $baris_supplier = mysqli_fetch_assoc($query_supplier);
                     $query = "SELECT * FROM tb_supplier";
-                    $data = mysqli_query($koneksi, $query);
+                    $data = mysqli_query($koneksi, $query); 
                     while($baris = mysqli_fetch_assoc($data)){
                     ?>
                 <option <?php if($baris_supplier['id_supplier']==$baris['id_supplier']){echo "selected";} ?>

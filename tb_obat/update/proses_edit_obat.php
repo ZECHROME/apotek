@@ -1,6 +1,6 @@
 <?php
 
-require_once "koneksi.php"; //seolah-olah semua code di koneksi.php bisa kita gunakan
+require_once "../../koneksi.php"; //seolah-olah semua code di koneksi.php bisa kita gunakan
 
 // die('test');
 
@@ -22,5 +22,5 @@ if(!$query){
     // header('Location:view_obat.php');
     // exit;
 
-    echo "<script>location.href='view_obat.php';</script>"; //pindah ke halaman obat jika berhasil
+    echo "<script>location.href='../select/view_obat.php';</script>"; //pindah ke halaman obat jika berhasil
 }

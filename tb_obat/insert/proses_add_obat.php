@@ -1,6 +1,6 @@
 <?php
 
-require_once "koneksi.php"; //seolah-olah semua code di koneksi.php bisa kita gunakan
+require_once "../../koneksi.php"; //seolah-olah semua code di koneksi.php bisa kita gunakan
 
 // die('test');
 
@@ -19,10 +19,10 @@ $query = mysqli_query($koneksi, "INSERT INTO tb_obat VALUES (NULL,'$id_supplier'
 if(!$query){
     echo "Gagal Memasukkan Data Obat ".mysqli_error($koneksi);
 }else{
-    header('Location:view_obat.php');
+    header('Location:../select/view_obat.php');
     exit;
 
-    echo "<script>location.href='view_obat.php';</script>"; //pindah ke halaman obat jika berhasil
+    echo "<script>location.href='../select/view_obat.php';</script>"; //pindah ke halaman obat jika berhasil
 }
 
 echo "berhasil";
