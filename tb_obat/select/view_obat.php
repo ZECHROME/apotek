@@ -1,5 +1,11 @@
 <?php
 include "../../koneksi.php";
+session_start();
+
+if(!isset($_SESSION['username'])) {
+    echo "<script>alert('Login terlebih dahulu!!');window.location.href='../../login.php';</script>";
+}
+
 $query = mysqli_query($koneksi, "SELECT * FROM tb_obat ORDER BY id_obat DESC");
  //ASCENDING mengurutkan dari kecil ke besar
  //DESCENDING mengurutkan dari besar ke kecil
@@ -11,10 +17,13 @@ $query = mysqli_query($koneksi, "SELECT * FROM tb_obat ORDER BY id_obat DESC");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>View Obat</title>
 </head>
 
 <body>
+    <?php        
+        echo $_SESSION['username'];
+    ?>
     <center>
         <table border="1" cellpadding="10" cellspacing="0">
             <tr>
