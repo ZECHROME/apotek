@@ -4,7 +4,9 @@ session_start();
 
 if(!isset($_SESSION['username'])) {
     echo "<script>alert('Login terlebih dahulu!!');window.location.href='../../login.php';</script>";
-}
+}elseif(@$_SESSION['username']=='karyawan') {
+    echo "<script>alert('anda karyawan, silahkan login terlebih dahulu');window.location.href='../../login.php';</script>";
+}else{
 
 $query = mysqli_query($koneksi, "SELECT * FROM tb_obat ORDER BY id_obat DESC");
  //ASCENDING mengurutkan dari kecil ke besar
@@ -76,3 +78,7 @@ $query = mysqli_query($koneksi, "SELECT * FROM tb_obat ORDER BY id_obat DESC");
 </body>
 
 </html>
+
+<?php
+}
+?>

@@ -1,5 +1,10 @@
 <?php
 include "../../koneksi.php";
+if(!@$_COOKIE['username']) {
+    echo "<script>alert('silahkan login terlebih dahulu');window.location.href='../../login.php'</script>";
+}else if(@$_COOKIE['level'] == 'karyawan'){
+    echo "<script>alert('silahkan login('anda karyawan');window.location.href='../../login.php';</script>";
+}
 $query = mysqli_query($koneksi, "SELECT * FROM tb_pelanggan ORDER BY id_pelanggan DESC");
  //ASCENDING mengurutkan dari kecil ke besar
  //DESCENDING mengurutkan dari besar ke kecil
@@ -15,6 +20,9 @@ $query = mysqli_query($koneksi, "SELECT * FROM tb_pelanggan ORDER BY id_pelangga
 </head>
 
 <body>
+    <?php 
+        echo $_COOKIE['username'];
+    ?>
     <center>
         <table border="1" cellpadding="10" cellspacing="0">
             <tr>
