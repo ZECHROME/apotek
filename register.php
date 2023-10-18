@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Formulir Obat</title>
+    <title>Register</title>
     <style>
     body {
         font-family: Arial, sans-serif;
@@ -92,38 +92,29 @@
             <!-- <label for="id_obat">ID Obat:</label>
             <input type="text" id="id_obat" name="id_obat" required> -->
 
-            <label for="id_supplier">ID Supplier:</label>
-            <select id="id_supplier" name="id_supplier">
+            <label for="id_supplier">Nama Karyawan:</label>
+            <select id="id_karyawan" name="id_karyawan">
                 <?php
-                    include "../../koneksi.php";
-                    $query = "SELECT * FROM tb_supplier";
+                    include "koneksi.php";
+                    $query = "SELECT * FROM tb_karyawan WHERE id_karyawan NOT IN (SELECT id_karyawan FROM tb_login)";
                     $data = mysqli_query($koneksi, $query);
                     while($baris = mysqli_fetch_assoc($data)){
                     ?>
-                <option value="<?= $baris['id_supplier']; ?>"><?= $baris['perusahaan']; ?></option>
+                <option value="<?= $baris['id_karyawan']; ?>"><?= $baris['nama_karyawan']; ?></option>
                 <?php
                 };
-                var_dump($data);
+                var_dump($baris);
                 ?>
             </select>
 
-            <label for="nama_obat">Nama Obat:</label>
-            <input type="text" id="nama_obat" name="nama_obat">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username">
 
-            <label for="kategori_obat">Kategori Obat:</label>
-            <input type="text" id="kategori_obat" name="kategori_obat">
+            <label for="password">Password:</label>
+            <input type="text" id="password" name="password">
 
-            <label for="harga_jual">Harga Jual:</label>
-            <input type="number" id="harga_jual" name="harga_jual">
-
-            <label for="harga_beli">Harga Beli:</label>
-            <input type="number" id="harga_beli" name="harga_beli">
-
-            <label for="stok_obat">Stok:</label>
-            <input type="number" id="stok_obat" name="stok_obat">
-
-            <label for="keterangan">Keterangan:</label>
-            <textarea id="keterangan" name="keterangan" rows="4" cols="50"></textarea>
+            <label for="level_user">Level User:</label>
+            <input type="text" id="level_user" name="level_user">
 
             <input type="submit" value="Simpan Data Obat">
         </form>
