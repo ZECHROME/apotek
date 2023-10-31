@@ -88,7 +88,7 @@
 <body>
     <div id="all">
         <h1 id="title">Register</h1>
-        <form action="proses_add_obat.php" method="post" id="form">
+        <form action="proses_register.php" method="post" id="form">
             <!-- <label for="id_obat">ID Obat:</label>
             <input type="text" id="id_obat" name="id_obat" required> -->
 
